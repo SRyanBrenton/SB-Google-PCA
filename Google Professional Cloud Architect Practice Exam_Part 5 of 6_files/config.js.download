@@ -1,0 +1,145 @@
+(function() {
+  window._POSTHOG_REMOTE_CONFIG = window._POSTHOG_REMOTE_CONFIG || {};
+  window._POSTHOG_REMOTE_CONFIG['phc_tZNcp3kUjFaiLA5Ykki6RYjLdHOgZJrRkFM0ZdosttS'] = {
+    config: {"analytics":{"endpoint":"/i/v0/e/"},"autocaptureExceptions":true,"autocapture_opt_out":true,"captureDeadClicks":false,"capturePerformance":{"network_timing":true,"web_vitals":true,"web_vitals_allowed_metrics":null},"conversations":false,"defaultIdentifiedOnly":true,"elementsChainAsString":true,"errorTracking":{"autocaptureExceptions":true,"suppressionRules":[]},"hasFeatureFlags":true,"heatmaps":{"captureMode":"url_allowlist","urlAllowlist":["https://examcademy.com/"],"urlAllowlistEnforced":false},"logs":{"captureConsoleLogs":false},"productTours":false,"push":{"appIds":[]},"sdkVersion":{"requested":"1"},"sessionRecording":{"canvasFps":null,"canvasQuality":null,"consoleLogRecordingEnabled":true,"endpoint":"/s/","eventTriggers":[],"linkedFlag":null,"masking":{"maskAllInputs":false},"minimumDurationMilliseconds":30000,"networkPayloadCapture":null,"recordCanvas":false,"recorderVersion":"v2","sampleRate":null,"scriptConfig":{"script":"posthog-recorder"},"triggerGroups":[{"conditions":{"events":[{"name":"$pageview"}],"matchType":"any"},"id":"352c3ffd-98f2-4416-8997-1f88ff7d4865","minDurationMs":30000,"name":"General group","sampleRate":0.15},{"conditions":{"events":[{"name":"$exception"}],"matchType":"any"},"id":"5575d78a-402c-4051-8dcc-2d09cfa80da7","name":"Exception","sampleRate":1}],"triggerMatchType":null,"urlBlocklist":[],"urlTriggers":[],"version":2},"supportedCompression":["gzip","gzip-js"],"surveys":false},
+    siteApps: [    
+    {
+      id: '019e4598-644e-0000-a6ff-d6f15b035435',
+      init: function(config) { return     (function() {
+        function __getProperty(objectOrArray, key, nullish) {
+            if ((nullish && !objectOrArray) || key === 0) { return null }
+            if (Array.isArray(objectOrArray)) { return key > 0 ? objectOrArray[key - 1] : objectOrArray[objectOrArray.length + key] }
+            else { return objectOrArray[key] }
+        }
+        function buildInputs(globals, initial) {
+        let inputs = {
+        "pixelId": "a2_h736d8ji4pzq"};
+        let __getGlobal = (key) => key === 'inputs' ? inputs : globals[key];
+        function getInputsKey(key, initial) { try { switch (key) {
+        case "userProperties": return {"email": __getProperty(__getProperty(__getGlobal("person"), "properties", true), "email", true)};
+        default: return null; }
+        } catch (e) { if(!initial) {console.error('[POSTHOG-JS] Unable to compute value for inputs', key, e);} return null } }
+        inputs["userProperties"] = getInputsKey("userProperties");
+        return inputs;}
+        const source = (function () {let exports={};"use strict";
+        
+        Object.defineProperty(exports, "__esModule", {
+          value: true
+        });
+        exports.onEvent = onEvent;
+        exports.onLoad = onLoad;
+        function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+        function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+        function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+        function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+        function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+        function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+        // Adds window.rdt and lazily loads the Reddit Pixel script
+        function initSnippet() {
+          !function (w, d) {
+            if (!w.rdt) {
+              var p = w.rdt = function () {
+                p.sendEvent ? p.sendEvent.apply(p, arguments) : p.callQueue.push(arguments);
+              };
+              p.callQueue = [];
+              var t = d.createElement("script");
+              t.src = "https://www.redditstatic.com/ads/pixel.js", t.async = !0;
+              var s = d.getElementsByTagName("script")[0];
+              s.parentNode.insertBefore(t, s);
+            }
+          }(window, document);
+        }
+        
+        // These are the event names which we are allowed to call rdt with. If we want to send a different event name, we will
+        // need to use the 'Custom' event name, and pass original event name as 'customEventName' in event properties.
+        var RDT_ALLOWED_EVENT_NAMES = ['PageVisit', 'Search', 'AddToCart', 'AddToWishlist', 'Purchase', 'ViewContent', 'Lead', 'SignUp', 'Custom'];
+        function onLoad(_ref) {
+          var inputs = _ref.inputs,
+            posthog = _ref.posthog;
+          initSnippet();
+          var userProperties = {};
+          for (var _i = 0, _Object$entries = Object.entries(inputs.userProperties); _i < _Object$entries.length; _i++) {
+            var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+              key = _Object$entries$_i[0],
+              value = _Object$entries$_i[1];
+            if (value) {
+              userProperties[key] = value;
+            }
+          }
+          ;
+          if (posthog.config.debug) {
+            console.log('[PostHog] rdt init', inputs.pixelId, userProperties);
+          }
+          rdt('init', inputs.pixelId, userProperties);
+        }
+        function onEvent(_ref2) {
+          var inputs = _ref2.inputs,
+            posthog = _ref2.posthog;
+          var eventProperties = {};
+          for (var _i2 = 0, _Object$entries2 = Object.entries(inputs.eventProperties); _i2 < _Object$entries2.length; _i2++) {
+            var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+              key = _Object$entries2$_i[0],
+              value = _Object$entries2$_i[1];
+            if (value) {
+              eventProperties[key] = value;
+            }
+          }
+          ;
+          var eventName;
+          if (RDT_ALLOWED_EVENT_NAMES.includes(inputs.eventType)) {
+            eventName = inputs.eventType;
+          } else {
+            eventName = 'Custom';
+            eventProperties.customEventName = inputs.eventType;
+          }
+          if (posthog.config.debug) {
+            console.log('[PostHog] rdt track', eventName, eventProperties);
+          }
+          rdt('track', eventName, eventProperties);
+        };return exports;})();
+            let processEvent = undefined;
+            if ('onEvent' in source) {
+                processEvent = function processEvent(globals, posthog) {
+                    if (!('onEvent' in source)) { return; };
+                    const inputs = buildInputs(globals);
+                    const filterGlobals = { ...globals.groups, ...globals.event, person: globals.person, inputs, pdi: { distinct_id: globals.event.distinct_id, person: globals.person } };
+                    let __getGlobal = (key) => filterGlobals[key];
+                    const filterMatches = true;
+                    if (!filterMatches) { return; }
+                    if ((__getGlobal("event") == "$pageview")) {(function (){const newInputs = structuredClone(inputs); const __getGlobal = (key) => key === 'inputs' ? newInputs : globals[key];
+        newInputs["eventType"] = "PageVisit";
+        try { newInputs["eventProperties"] = {"conversion_id": __getProperty(__getGlobal("event"), "uuid", true)}; } catch (e) { console.error(e) }
+        source.onEvent({ inputs: newInputs, posthog });})();}
+        
+                }
+            }
+        
+            function init(config) {
+                const posthog = config.posthog;
+                const callback = config.callback;
+                if ('onLoad' in source) {
+                    const globals = {
+                        person: {
+                            properties: posthog.get_property('$stored_person_properties'),
+                        }
+                    }
+                    const r = source.onLoad({ inputs: buildInputs(globals, true), posthog: posthog });
+                    if (r && typeof r.then === 'function' && typeof r.finally === 'function') { r.catch(() => callback(false)).then(() => callback(true)) } else { callback(true) }
+                } else {
+                    callback(true);
+                }
+        
+                const response = {}
+        
+                if (processEvent) {
+                    response.processEvent = (globals) => processEvent(globals, posthog)
+                }
+        
+                return response
+            }
+        
+            return { init: init };
+        })().init(config) } 
+    }]
+  }
+})();
